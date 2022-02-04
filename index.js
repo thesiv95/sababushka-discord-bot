@@ -1,5 +1,12 @@
 require('dotenv').config();
 const { Client } = require('discord.js');
+const jokes = require('./jokes');
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}
 
 const client = new Client({
     intents: [
@@ -9,22 +16,19 @@ const client = new Client({
     ]
 });
 
-const joke = `
-להגיד לאדם בדיכאון להתעוד זה כמו להגיד לאדם עם אסטמה לנשום נורמלי
-
-леагИд ле адАм бэ дикаОн леитодЭд, зэ кмо леагИд ле адАм им Астма линшОм нормАли
-
-сказать человеку с депрессией приободриться, это как сказать человеку с астмой дышать нормально
-`;
 
 client.on('ready', () => {
     console.log(`logged: ${client.user.tag}`);
 });
 
-client.on('message', (message) => {
-    if (message.author.bot) return; // prevent accident msgs
+client.on('message', async (message) => {
+    if (message.author.bot) return;
+
     if (message.content === 'joke') {
-        message.channel.send(joke);
+        if (message.author.bot) return;
+        const jokeIndex = getRandomInt(0, jokes.length);
+        const joke = jokes[jokeIndex];
+        await message.channel.send(joke)
     }
 })
 
