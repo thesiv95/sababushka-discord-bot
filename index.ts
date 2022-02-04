@@ -1,12 +1,9 @@
-require('dotenv').config();
-const { Client } = require('discord.js');
-const jokes = require('./jokes');
+import dotenv from 'dotenv';
+import { Client } from 'discord.js';
+import jokes from './jokes';
+import getRandomInt from './utils/getRandomInt';
+dotenv.config();
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
 
 const client = new Client({
     intents: [
@@ -18,7 +15,7 @@ const client = new Client({
 
 
 client.on('ready', () => {
-    console.log(`logged: ${client.user.tag}`);
+    console.log(`logged: ${client.user!.tag}`);
 });
 
 client.on('message', async (message) => {

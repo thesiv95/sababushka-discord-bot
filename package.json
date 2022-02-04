@@ -4,17 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "tsc && node dist/index.js",
+    "dev": "nodemon index.ts",
+    "changelog": "npm run changelog"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "ts-node": "^10.4.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "standard-version": "^9.3.2"
   }
 }
