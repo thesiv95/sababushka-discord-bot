@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { Client } from 'discord.js';
 import jokes from './jokes';
 import getRandomInt from './utils/getRandomInt';
+import { CMD_PREFIX } from './utils/constants';
 dotenv.config();
 
 
@@ -18,10 +19,11 @@ client.on('ready', () => {
     console.log(`logged: ${client.user!.tag}`);
 });
 
-client.on('message', async (message) => {
+client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
 
-    if (message.content === 'joke') {
+    // If bot command starts with prefix
+    if (message.content[0] === CMD_PREFIX && message.content === '!joke') {
         if (message.author.bot) return;
         const jokeIndex = getRandomInt(0, jokes.length);
         const joke = jokes[jokeIndex];
