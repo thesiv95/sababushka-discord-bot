@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.2.0...v1.3.0) (2022-02-11)
+
+
+### Features
+
+* 1 new joke, add better cmd check ([5ecc4fd](https://github.com/thesiv95/sababushka-discord-bot/commit/5ecc4fd5a7d34159b09ef303ef612d23be831e72))
+
 ## [1.2.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.1.0...v1.2.0) (2022-02-05)
 
 
