@@ -1,8 +1,14 @@
 import dotenv from 'dotenv';
+import express from 'express';
 import { Client } from 'discord.js';
 import jokesHandler from './handlers/jokesHandler';
 import { CMD_PREFIX, CMD_JOKES } from './utils/constants';
+import adminCheck from './utils/auth';
+import addToSababushka from './addToSababushka';
+import dbConnection from './utils/dbConnection';
 dotenv.config();
+
+
 
 const client = new Client({
     intents: [
@@ -13,8 +19,20 @@ const client = new Client({
 });
 
 
-client.on('ready', () => {
+// HTTP route for adding info
+const app = express();
+app.use(express.json());
+
+app.post('/addToSababushka', adminCheck, addToSababushka);
+
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
+app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
+
+
+// Discord bot init
+client.on('ready', async () => {
     console.log(`logged: ${client.user!.tag}`);
+    await dbConnection();
 });
 
 client.on('messageCreate', async (message) => {
