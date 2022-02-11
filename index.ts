@@ -1,10 +1,8 @@
 import dotenv from 'dotenv';
 import { Client } from 'discord.js';
-import jokes from './jokes';
-import getRandomInt from './utils/getRandomInt';
-import { CMD_PREFIX } from './utils/constants';
+import jokesHandler from './handlers/jokesHandler';
+import { CMD_PREFIX, CMD_JOKES } from './utils/constants';
 dotenv.config();
-
 
 const client = new Client({
     intents: [
@@ -20,15 +18,13 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
+
+    // this is not a command
+    if (message.content[0] !== CMD_PREFIX) return;
+
     if (message.author.bot) return;
 
-    // If bot command starts with prefix
-    if (message.content[0] === CMD_PREFIX && message.content === '!joke') {
-        if (message.author.bot) return;
-        const jokeIndex = getRandomInt(0, jokes.length);
-        const joke = jokes[jokeIndex];
-        await message.channel.send(joke)
-    }
+    if (message.content === CMD_JOKES) await jokesHandler(message);
 })
 
 
