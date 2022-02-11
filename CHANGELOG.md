@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.3.0...v1.4.0) (2022-02-11)
+
+
+### Features
+
+* add admin auth, admin route and db ([5c9f6ca](https://github.com/thesiv95/sababushka-discord-bot/commit/5c9f6ca1cf097ad89c72f34a32cd68c8f3199916))
+
 ## [1.3.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.2.0...v1.3.0) (2022-02-11)
 
 
