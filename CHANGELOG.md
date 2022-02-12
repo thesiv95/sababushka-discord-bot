@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.4.0...v1.5.0) (2022-02-12)
+
+
+### Features
+
+* add Dictatura command ([de839a2](https://github.com/thesiv95/sababushka-discord-bot/commit/de839a26b32591e486c9e5b6c2588ddbc54ca968))
+
 ## [1.4.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.3.0...v1.4.0) (2022-02-11)
 
 
