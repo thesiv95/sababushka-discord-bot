@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { Client } from 'discord.js';
 import jokesHandler from './handlers/jokesHandler';
-import { CMD_PREFIX, CMD_JOKES } from './utils/constants';
+import dictaturasHandler from './handlers/dictaturasHandler';
+import { CMD_PREFIX, CMD_JOKES, CMD_DICTATURA } from './utils/constants';
 import adminCheck from './utils/auth';
 import addToSababushka from './addToSababushka';
 import dbConnection from './utils/dbConnection';
@@ -40,9 +41,11 @@ client.on('messageCreate', async (message) => {
     // this is not a command
     if (message.content[0] !== CMD_PREFIX) return;
 
+    console.log(message.author)
     if (message.author.bot) return;
 
     if (message.content === CMD_JOKES) await jokesHandler(message);
+    if (message.content === CMD_DICTATURA) await dictaturasHandler(message);
 })
 
 
