@@ -30,6 +30,5 @@ jobs:
     - run: npm run start
       env:
           SERVER_PORT: 3000
-          BOT_TOKEN: OTM4ODUxMTg5MDcwNjU5NjA1.YfwTTg.sZ8SR93KMcTatL3ZYuQvdqRXvWA
           ADMIN_KEY: 5f64fec0-8b58-11ec-a8a3-0242ac120002
           MONGO_URL: mongodb+srv://lucky:lucky@cluster0.5bqnz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
