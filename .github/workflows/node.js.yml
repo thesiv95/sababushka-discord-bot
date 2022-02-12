@@ -27,8 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-    - run: npm run start
+    - run: npm run build
       env:
           SERVER_PORT: 3000
-          ADMIN_KEY: 5f64fec0-8b58-11ec-a8a3-0242ac120002
-          MONGO_URL: mongodb+srv://lucky:lucky@cluster0.5bqnz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
