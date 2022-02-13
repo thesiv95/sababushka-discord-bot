@@ -33,11 +33,15 @@ app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
 // Discord bot init
 client.on('ready', async () => {
     console.log(`logged: ${client.user!.tag}`);
-    console.log(process.env.MONGO_URL)
+    
+    console.log(`mongo` + process.env.MONGO_URL)
     await dbConnection();
 });
 
 client.on('messageCreate', async (message) => {
+    if (!process.env.MONGO_URL) {
+        await message.channel.send('База данных не определена!!!');
+    }
 
     // this is not a command
     if (message.content[0] !== CMD_PREFIX) return;
