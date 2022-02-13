@@ -29,5 +29,8 @@ jobs:
     - run: npm i
     - run: npm run build
       env:
-          SERVER_PORT: 3000
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_KEY: ${{ secrets.ADMIN_KEY }}
+          MONGO_URL: ${{ secrets.MONGO_URL }}
     - run: pm2 restart 1
