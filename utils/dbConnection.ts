@@ -5,6 +5,7 @@ dotenv.config();
 
 const dbConnection = () => {
     try {
+        console.log(`db connection >>> ${process.env.MONGO_URL}`)
         mongoose.connect(process.env.MONGO_URL!, () => {
           console.log('db connected');
         });
