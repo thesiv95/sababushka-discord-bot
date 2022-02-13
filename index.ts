@@ -31,11 +31,11 @@ app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
 
 
 // Discord bot init
-client.on('ready', async () => {
+client.on('ready', () => {
     console.log(`logged: ${client.user!.tag}`);
     
-    console.log(`mongo` + process.env.MONGO_URL)
-    await dbConnection();
+    console.log(`mongo ` + process.env.MONGO_URL)
+    dbConnection();
 });
 
 client.on('messageCreate', async (message) => {
