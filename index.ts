@@ -33,6 +33,7 @@ app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
 // Discord bot init
 client.on('ready', async () => {
     console.log(`logged: ${client.user!.tag}`);
+    console.log(process.env.MONGO_URL)
     await dbConnection();
 });
 
@@ -47,6 +48,7 @@ client.on('messageCreate', async (message) => {
     if (message.content === CMD_JOKES) await jokesHandler(message);
     if (message.content === CMD_DICTATURA) await dictaturasHandler(message);
 })
+
 
 
 client.login(process.env.BOT_TOKEN);
