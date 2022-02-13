@@ -39,9 +39,7 @@ client.on('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-    if (!process.env.MONGO_URL) {
-        await message.channel.send('База данных не определена!!!');
-    }
+    
 
     // this is not a command
     if (message.content[0] !== CMD_PREFIX) return;
