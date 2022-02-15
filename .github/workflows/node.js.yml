@@ -28,5 +28,5 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: npm run build
-    - run: sh ~/setup_env.sh
-    - run: pm2 restart 1 --update-env
+    - run: source /etc/profile
+    - run: pm2 restart 1
