@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.5.0...v1.6.0) (2022-02-15)
+
+
+### Features
+
+* add webinar command ([2b5c5f4](https://github.com/thesiv95/sababushka-discord-bot/commit/2b5c5f4e469b4e6239ee4d40b30d7feb8ef5dad6))
+
 ## [1.5.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.4.0...v1.5.0) (2022-02-12)
 
 
