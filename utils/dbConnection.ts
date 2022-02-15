@@ -6,7 +6,8 @@ dotenv.config();
 const dbConnection = () => {
     try {
         console.log(`db connection >>> ${process.env.MONGO_URL}`)
-        mongoose.connect('mongodb+srv://lucky:lucky@cluster0.5bqnz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', () => {
+        if (!process.env.MONGO_DB) throw new Error('No connection string defined');
+        mongoose.connect(process.env.MONGO_DB, () => {
           console.log('db connected');
         });
       } catch (error) {
