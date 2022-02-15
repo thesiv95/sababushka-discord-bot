@@ -3,7 +3,7 @@ import express from 'express';
 import { Client } from 'discord.js';
 import jokesHandler from './handlers/jokesHandler';
 import dictaturasHandler from './handlers/dictaturasHandler';
-import { CMD_PREFIX, CMD_JOKES, CMD_DICTATURA } from './utils/constants';
+import { CMD_PREFIX, CMD_JOKES, CMD_DICTATURA, CMD_WEBINAR } from './utils/constants';
 import adminCheck from './utils/auth';
 import addToSababushka from './addToSababushka';
 import dbConnection from './utils/dbConnection';
@@ -34,7 +34,7 @@ app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
 client.on('ready', () => {
     console.log(`logged: ${client.user!.tag}`);
     
-    console.log(`mongo ` + process.env.MONGO_URL)
+    // console.log(`mongo ` + process.env.MONGO)
     dbConnection();
 });
 
@@ -49,6 +49,7 @@ client.on('messageCreate', async (message) => {
 
     if (message.content === CMD_JOKES) await jokesHandler(message);
     if (message.content === CMD_DICTATURA) await dictaturasHandler(message);
+    if (message.content === CMD_WEBINAR) await message.reply('https://www.youtube.com/watch?v=oGUQeO5DdYc');
 })
 
 

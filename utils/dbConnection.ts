@@ -5,9 +5,9 @@ dotenv.config();
 
 const dbConnection = () => {
     try {
-        console.log(`db connection >>> ${process.env.MONGO_URL}`)
-        if (!process.env.MONGO_DB) throw new Error('No connection string defined');
-        mongoose.connect(process.env.MONGO_DB, () => {
+        // console.log(`db connection >>> ${process.env.MONGO}`)
+        if (!process.env.MONGO) throw new Error('No connection string defined');
+        mongoose.connect(process.env.MONGO, () => {
           console.log('db connected');
         });
       } catch (error) {
