@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { Request, Response, NextFunction } from 'express';
-dotenv.config();
+if (process.env.NODE_ENV === 'dev') dotenv.config();
 
 const adminCheck = (req: Request, res: Response, next: NextFunction) => {
     try {

@@ -7,7 +7,10 @@ import { CMD_PREFIX, CMD_JOKES, CMD_DICTATURA, CMD_WEBINAR } from './utils/const
 import adminCheck from './utils/auth';
 import addToSababushka from './addToSababushka';
 import dbConnection from './utils/dbConnection';
-dotenv.config();
+if (process.env.NODE_ENV === 'dev'){
+    console.log('dev mode');
+    dotenv.config();
+}
 
 
 
