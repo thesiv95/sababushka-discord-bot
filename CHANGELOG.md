@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.7.0...v2.0.0) (2022-02-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* New commands, WOK architecture, Logger
+
+### Features
+
+* wokcommands module integration ([cb73d1c](https://github.com/thesiv95/sababushka-discord-bot/commit/cb73d1c097edb90e8544ef555975618c9b7a57be))
+
 ## [1.7.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.6.0...v1.7.0) (2022-02-20)
 
 
