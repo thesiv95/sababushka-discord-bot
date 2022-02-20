@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.6.0...v1.7.0) (2022-02-20)
+
+
+### Features
+
+* cron ([9175b06](https://github.com/thesiv95/sababushka-discord-bot/commit/9175b06a6a3fdc1fc97541126822fce13219211c))
+
 ## [1.6.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.5.0...v1.6.0) (2022-02-15)
 
 
