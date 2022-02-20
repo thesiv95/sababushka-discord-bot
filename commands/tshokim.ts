@@ -4,6 +4,6 @@ export default {
     category: 'Misc',
     description: 'Случайная шутка из раздела #цхоким',
     slash: 'both',
-    testOnly: true,
+    // testOnly: true,
     callback: () => 'tshokim'
 } as ICommand

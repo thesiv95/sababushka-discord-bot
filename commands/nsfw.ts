@@ -4,6 +4,6 @@ export default {
     category: 'Misc',
     description: 'Слова на тему 18+ ;)',
     slash: 'both',
-    testOnly: true,
+    // testOnly: true,
     callback: () => 'nsfw'
 } as ICommand

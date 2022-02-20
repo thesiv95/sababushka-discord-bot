@@ -4,6 +4,6 @@ export default {
     category: 'Misc',
     description: 'Случайное слово недели',
     slash: 'both',
-    testOnly: true,
+    // testOnly: true,
     callback: () => 'word'
 } as ICommand

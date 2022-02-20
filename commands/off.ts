@@ -4,6 +4,6 @@ export default {
     category: 'Reminder Controls',
     description: 'Отключить напоминалку',
     slash: 'both',
-    testOnly: true,
+    // testOnly: true,
     callback: () => 'off'
 } as ICommand
