@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { Client } from 'discord.js';
+import { cronsInit } from './crons';
 import jokesHandler from './handlers/jokesHandler';
 import dictaturasHandler from './handlers/dictaturasHandler';
 import { CMD_PREFIX, CMD_JOKES, CMD_DICTATURA, CMD_WEBINAR } from './utils/constants';
@@ -37,8 +38,9 @@ app.listen(SERVER_PORT, () => console.log(`server started @ ${SERVER_PORT}`));
 client.on('ready', () => {
     console.log(`logged: ${client.user!.tag}`);
     
-    // console.log(`mongo ` + process.env.MONGO)
+    
     dbConnection();
+    cronsInit(client);
 });
 
 client.on('messageCreate', async (message) => {
