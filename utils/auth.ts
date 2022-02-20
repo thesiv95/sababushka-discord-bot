@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { Request, Response, NextFunction } from 'express';
+import logger from './logger';
 if (process.env.NODE_ENV === 'dev') dotenv.config();
 
 const adminCheck = (req: Request, res: Response, next: NextFunction) => {
@@ -7,15 +8,16 @@ const adminCheck = (req: Request, res: Response, next: NextFunction) => {
         const adminKey = process.env.ADMIN_KEY;
         const header = req.headers['x-api-key'];
         if (adminKey !== header) {
-            console.log(`key ${header} is not correct`);
+            logger.warning(`key ${header} is not correct`);
             return next(res.status(401).json({ error: 'Unauthorized'}));
         }
 
-        console.log('admin check passed');
+        logger.info('admin check passed');
         return next();
 
 
     } catch (error) {
+        logger.error(`admin check error: ${error}`);
         return next(res.status(400).json({ error }));
     }
 };
