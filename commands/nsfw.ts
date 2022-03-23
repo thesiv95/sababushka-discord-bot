@@ -10,7 +10,8 @@ const nsfwHandler = async (args: string[]) => {
 
     try {
         // define if we should search by word
-        const query = args.length !== 0 && args[0] ? `/${args[0]}` : null; 
+        console.log(args)
+        const query = args.length !== 0 && args[0] ? `?q=${args[0]}` : null; 
 
         const response = await axios.get(
             `${process.env.SERVER_URL}/nsfws/search${query ? query : ''}`,
@@ -60,6 +61,9 @@ export default {
     category: 'Misc',
     description: 'Слова на тему 18+ ;) Если не ввести параметры поиска, будет показано случайное слово',
     slash: 'both',
+    expectedArgs: '<query>',
+    minArgs: 0,
+    maxArgs: 1,
     // testOnly: true,
     callback: ({ args }) => nsfwHandler(args)
 } as ICommand
