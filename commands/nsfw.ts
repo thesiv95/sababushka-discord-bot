@@ -1,32 +1,21 @@
-import axios from 'axios';
-import { config } from 'dotenv';
 import { ICommand } from 'wokcommands';
+import { CommandsEnum } from '../enums/commands.enum';
 import getRandomInt from '../utils/getRandomInt';
 import logger from '../utils/logger';
-
-if (process.env.NODE_ENV!.startsWith('dev')) config();
+import doAPIRequest from '../utils/http';
 
 const nsfwHandler = async (args: string[]) => {
-
     try {
         // define if we should search by word
-        console.log(args)
         const query = args.length !== 0 && args[0] ? `?q=${args[0]}` : null; 
-
-        const response = await axios.get(
-            `${process.env.SERVER_URL}/nsfws/search${query ? query : ''}`,
-            {
-                headers: { 'x-api-key': process.env.API_KEY!.toString() }
-            }
-        );
-        const data = await response.data.data;
+        const apiResponse = await doAPIRequest(CommandsEnum.nsfws, query);
         let msg;
 
         if (query) {
             // If empty array (nothing was found)
-            if (data.length === 0) return 'Бот ничего не нашел!';
+            if (apiResponse.length === 0) return 'Бот ничего не нашел!';
             // Otherwise, create one big message from results
-            const msgParts = data.map((item: any) => `
+            const msgParts = apiResponse.map((item: any) => `
                 ${item.he}
                 ${item.translit}
                 ${item.ru}
@@ -39,15 +28,14 @@ const nsfwHandler = async (args: string[]) => {
 
         } else {
             // random word in case no query provided
-            const index = getRandomInt(0, data.length - 1);
+            const index = getRandomInt(0, apiResponse.length - 1);
 
             msg = `
                 https://sababushka.com/sex
-                ${data[index].he}
-                ${data[index].translit}
-                ${data[index].ru}
+                ${apiResponse[index].he}
+                ${apiResponse[index].translit}
+                ${apiResponse[index].ru}
             `
-
         }
 
         return msg;
@@ -64,6 +52,5 @@ export default {
     expectedArgs: '<query>',
     minArgs: 0,
     maxArgs: 1,
-    // testOnly: true,
     callback: ({ args }) => nsfwHandler(args)
 } as ICommand
