@@ -1,10 +1,6 @@
-import { Client } from 'discord.js';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import nodeSchedule from 'node-schedule';
 import logger from './utils/logger';
-import { response } from 'express';
-
-const discordWebhook = 'https://discord.com/api/webhooks/945244452711174194/6y42orAarcLI0Uuwn1dk-Oz7cyDYQvMtsWmCh4SRjDs1lb-G81pW5W_PebQi_EWPXkkW'
 
 const phraseTemplate = (activity: string) => {
     return `Привет! Я понимаю, что ты очень устал, но пожалуйста, удели 5 минут ${activity}, ты мне еще спасибо скажешь! ;)`;
@@ -22,31 +18,36 @@ const getActivity = (day: number) => {
 
 export const cronsInit = async () => {
     logger.info('Cron: init');
-    nodeSchedule.scheduleJob('0 21 * * *', async () => {
-        
-
+    nodeSchedule.scheduleJob('* * */1 * *', async () => {
         try {
             // Check which users are active via endpoint
-            const response = await axios.get('http://localhost:900/reminders/activeUsers', {
-                headers: { 'x-api-key': '1149c713-3a9e-4a13-9171-e250da21bd7e' }
-            });
+            const url = `${process.env.SERVER_URL!}/reminders/activeUsers`
+            const response = await axios.get(url, {
+                headers: { 'x-api-key': process.env.API_KEY! }
+            }) as AxiosResponse;
 
             const data = await response.data.data;
+
+            if (response.status === 200 && data.length === 0) {
+                return logger.warn(`Cron: status is 200 but no data found`);
+            }
 
             const users = data.map((el: { userId: string; }) => el.userId);
 
             const day = new Date().getDay();
             const message = getActivity(day);
+            const msgEvents = [];
             for (let i = 0; i < users.length - 1; i++) {
-                await axios.post('https://discord.com/api/webhooks/945244452711174194/6y42orAarcLI0Uuwn1dk-Oz7cyDYQvMtsWmCh4SRjDs1lb-G81pW5W_PebQi_EWPXkkW', {
-                    "content": `<@${users[0]}> ${message}`,
-                    "allowed_mentions": {
-                        "users": [users[0]]
-                  }
-                });
+                msgEvents.push(axios.post(process.env.CRON_WEBHOOK_URL!, {
+                    "content": `<@${users[i]}> ${message}`,
+                //     "allowed_mentions": {
+                //         "users": [users[0]]
+                //   }
+                }));
             }
+            await Promise.all(msgEvents);
         } catch (error) {
-            console.log(error);
+            logger.error(`Cron init error ${error}`)
         }
     });
 };
