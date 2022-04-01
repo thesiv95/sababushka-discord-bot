@@ -18,7 +18,7 @@ const getActivity = (day: number) => {
 
 export const cronsInit = async () => {
     logger.info('Cron: init');
-    nodeSchedule.scheduleJob('* * */1 * *', async () => {
+    nodeSchedule.scheduleJob(process.env.CRON_TIME!, async () => {
         try {
             // Check which users are active via endpoint
             const url = `${process.env.SERVER_URL!}/reminders/activeUsers`
@@ -29,20 +29,17 @@ export const cronsInit = async () => {
             const data = await response.data.data;
 
             if (response.status === 200 && data.length === 0) {
-                return logger.warn(`Cron: status is 200 but no data found`);
+                return logger.warn(`Cron: status is 200 but no data found/no active users`);
             }
 
-            const users = data.map((el: { userId: string; }) => el.userId);
+            const users = data.map((user: { userId: string; }) => user.userId);
 
             const day = new Date().getDay();
             const message = getActivity(day);
             const msgEvents = [];
-            for (let i = 0; i < users.length - 1; i++) {
+            for (let i = 0; i <= users.length - 1; i++) {
                 msgEvents.push(axios.post(process.env.CRON_WEBHOOK_URL!, {
-                    "content": `<@${users[i]}> ${message}`,
-                //     "allowed_mentions": {
-                //         "users": [users[0]]
-                //   }
+                    "content": `<@${users[i]}> ${message}`
                 }));
             }
             await Promise.all(msgEvents);

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { config } from 'dotenv';
 import { ReminderToggleEnum } from '../enums/reminder-toggle.enum';
 import logger from './logger';
@@ -20,18 +20,28 @@ export const doAPIRequest = async (category: string, query: URLSearchParams | nu
         {
             headers: { 'x-api-key': process.env.API_KEY!.toString() }
         }
-    );
+    ) as AxiosResponse;
     const data = await response.data.data;
     return data;
 };
 
 /**
  * Send a get query to API for reminder control (set flag in DB)
- * @param setTo status
+ * @param option status
  * @returns 
  */
-export const toggleApi = async (setTo: ReminderToggleEnum) => {
-
+export const doApiReminderToggle = async (option: ReminderToggleEnum, userId: string) => {
+    const query = new URLSearchParams({ userId });
+    const url = `${process.env.SERVER_URL}/reminders/${option}?${query}`;
+    const response = await axios.get(
+        url,
+        {
+            headers: { 'x-api-key': process.env.API_KEY!.toString() }
+        }
+        ) as AxiosResponse;
+    const status = response.status;
+    logger.info(`api reminder ${url} >> status ${status}`);
+    return status === 202;
 }
 
 
