@@ -3,11 +3,11 @@ import getRandomInt from '../utils/getRandomInt';
 import logger from '../utils/logger';
 import * as Http from '../utils/http';
 
-const nsfwHandler = async (args: string[]) => {
+const bituyHandler = async (args: string[]) => {
     try {
         // define if we should search by word
         const query = args.length !== 0 && args[0] ? `?q=${args[0]}` : null; 
-        const apiResponse = await Http.doAPIRequest(CommandsEnum.nsfws, query);
+        const apiResponse = await Http.doAPIRequest(CommandsEnum.bituys, query);
         let msg;
 
         if (query) {
@@ -21,7 +21,7 @@ const nsfwHandler = async (args: string[]) => {
             `);
 
             return `
-                https://sababushka.com/sex
+                https://sababushka.com/sayings
                 ${msgParts.join('\n')}
             `;
 
@@ -30,7 +30,7 @@ const nsfwHandler = async (args: string[]) => {
             const index = getRandomInt(0, apiResponse.length - 1);
 
             msg = `
-                https://sababushka.com/sex
+                https://sababushka.com/sayings
                 ${apiResponse[index].he}
                 ${apiResponse[index].translit}
                 ${apiResponse[index].ru}
@@ -44,4 +44,4 @@ const nsfwHandler = async (args: string[]) => {
     }
 }
 
-export default nsfwHandler;
+export default bituyHandler;

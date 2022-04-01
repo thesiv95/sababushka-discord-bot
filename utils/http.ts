@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { config } from 'dotenv';
+import { ReminderToggleEnum } from '../enums/reminder-toggle.enum';
 
 if (process.env.NODE_ENV!.startsWith('dev')) config();
 
@@ -9,9 +10,11 @@ if (process.env.NODE_ENV!.startsWith('dev')) config();
  * @param query text of query - could be null
  * @returns 
  */
-const doAPIRequest = async (category: string, query: string | null) => {
+export const doAPIRequest = async (category: string, query: string | null) => {
+    const url = `${process.env.SERVER_URL}/${category}/search${query ? query : ''}`;
+    
     const response = await axios.get(
-        `${process.env.SERVER_URL}/${category}/search${query ? query : ''}`,
+        url,
         {
             headers: { 'x-api-key': process.env.API_KEY!.toString() }
         }
@@ -20,5 +23,13 @@ const doAPIRequest = async (category: string, query: string | null) => {
     return data;
 };
 
-export default doAPIRequest;
+/**
+ * Send a get query to API for reminder control (set flag in DB)
+ * @param setTo status
+ * @returns 
+ */
+export const toggleApi = async (setTo: ReminderToggleEnum) => {
+
+}
+
 

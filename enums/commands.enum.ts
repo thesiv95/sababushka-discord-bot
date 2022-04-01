@@ -1,4 +1,6 @@
 export enum CommandsEnum {
-    bituys = 'bituy',
-    nsfws = 'nsfws'
+    bituys = 'bituyim',
+    nsfws = 'nsfws',
+    tshokim = 'tshokim',
+    words = 'words'
 }
