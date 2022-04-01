@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { config } from 'dotenv';
 import { ReminderToggleEnum } from '../enums/reminder-toggle.enum';
+import logger from './logger';
 
 if (process.env.NODE_ENV!.startsWith('dev')) config();
 
@@ -10,8 +11,9 @@ if (process.env.NODE_ENV!.startsWith('dev')) config();
  * @param query text of query - could be null
  * @returns 
  */
-export const doAPIRequest = async (category: string, query: string | null) => {
-    const url = `${process.env.SERVER_URL}/${category}/search${query ? query : ''}`;
+export const doAPIRequest = async (category: string, query: URLSearchParams | null) => {
+    const url = `${process.env.SERVER_URL}/${category}/search${query ? `?${query}` : ''}`;
+    logger.info(`api request ${url}`);
     
     const response = await axios.get(
         url,

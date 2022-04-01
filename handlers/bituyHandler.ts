@@ -6,13 +6,22 @@ import * as Http from '../utils/http';
 const bituyHandler = async (args: string[]) => {
     try {
         // define if we should search by word
-        const query = args.length !== 0 && args[0] ? `?q=${args[0]}` : null; 
+        let query: URLSearchParams | null;
+        
+        if (args.length !== 0) {
+            query = new URLSearchParams({
+                q: args[0]
+            })
+        } else {
+            query = null;
+        }
+        
         const apiResponse = await Http.doAPIRequest(CommandsEnum.bituys, query);
         let msg;
+        // If empty array (nothing was found)
+        if (apiResponse.length === 0) return 'Бот ничего не нашел!';
 
         if (query) {
-            // If empty array (nothing was found)
-            if (apiResponse.length === 0) return 'Бот ничего не нашел!';
             // Otherwise, create one big message from results
             const msgParts = apiResponse.map((item: any) => `
                 ${item.he}
