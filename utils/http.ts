@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import { ReminderToggleEnum } from '../enums/reminder-toggle.enum';
 import logger from './logger';
 
-if (process.env.NODE_ENV!.startsWith('dev')) config();
+dotenv.config();
 
 /**
  * Send a get query to API for grabbing data fot bot message

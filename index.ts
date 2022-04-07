@@ -6,8 +6,8 @@ import { cronsInit } from './crons';
 import logger from './utils/logger';
 if (process.env.NODE_ENV === 'dev'){
     logger.warn('dev mode');
-    dotenv.config();
 }
+dotenv.config();
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 console.log('process.env.BOT_TOKEN', process.env.BOT_TOKEN);
