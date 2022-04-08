@@ -23,7 +23,8 @@ client.on('ready', async () => {
     
     new WOKCommands(client, {
         commandsDir: path.join(__dirname, 'commands'),
-        typeScript: true,
+        // we use ts only in dev mode. otherwise cmds will not be registered
+        typeScript: process.env.NODE_ENV === 'dev',
         testServers: ['938850851810865264'],
         mongoUri: process.env.MONGO,
     });
