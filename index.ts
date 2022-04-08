@@ -9,16 +9,6 @@ if (process.env.NODE_ENV === 'dev'){
 }
 dotenv.config();
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-console.log('process.env.BOT_TOKEN', process.env.BOT_TOKEN);
-console.log('process.env.MONGO', process.env.MONGO);
-console.log('process.env.API_KEY', process.env.API_KEY);
-console.log('process.env.SERVER_URL', process.env.SERVER_URL);
-console.log('process.env.CRON_WEBHOOK_URL', process.env.CRON_WEBHOOK_URL);
-console.log('process.env.CRON_TIME', process.env.CRON_TIME);
-
-
-
 const client = new Client({
     intents: [
         "GUILDS",
