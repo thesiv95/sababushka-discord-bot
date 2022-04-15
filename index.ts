@@ -22,10 +22,13 @@ client.on('ready', async () => {
     await cronsInit();
     
     new WOKCommands(client, {
+        // 1 file = 1 command
         commandsDir: path.join(__dirname, 'commands'),
         // we use ts only in dev mode. otherwise cmds will not be registered
         typeScript: process.env.NODE_ENV === 'dev',
-        testServers: ['938850851810865264'],
+        // ids are a single line separated with commas in env, here we need to convert it to array
+        testServers: process.env.TEST_DISCORD_SERVERS_IDS!.split(','),
+        // mongodb is used for wokcommands params, and for words as well
         mongoUri: process.env.MONGO,
     });
     
