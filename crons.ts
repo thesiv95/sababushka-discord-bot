@@ -41,7 +41,7 @@ export const cronsInit = async () => {
                 targetUserList += `<@${users[i]}> `
             }
             await axios.post(process.env.CRON_WEBHOOK_URL!, {
-                "content": `<@${targetUserList}> ${message}`
+                "content": `${targetUserList} ${message}`
             });
         } catch (error) {
             logger.error(`Cron init error ${error}`)
