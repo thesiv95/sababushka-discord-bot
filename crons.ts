@@ -36,13 +36,13 @@ export const cronsInit = async () => {
 
             const day = new Date().getDay();
             const message = getActivity(day);
-            const msgEvents = [];
+            let targetUserList = '';
             for (let i = 0; i <= users.length - 1; i++) {
-                msgEvents.push(axios.post(process.env.CRON_WEBHOOK_URL!, {
-                    "content": `<@${users[i]}> ${message}`
-                }));
+                targetUserList += `<@${users[i]}> `
             }
-            await Promise.all(msgEvents);
+            await axios.post(process.env.CRON_WEBHOOK_URL!, {
+                "content": `<@${targetUserList}> ${message}`
+            });
         } catch (error) {
             logger.error(`Cron init error ${error}`)
         }
