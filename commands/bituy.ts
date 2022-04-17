@@ -3,7 +3,7 @@ import bituyHandler from '../handlers/bituyHandler';
 
 export default {
     category: 'Misc',
-    description: 'Случайная поговорка на иврите',
+    description: 'Пословицы и поговорки на иврите. Если не ввести слово в качестве параметра в команде, то будет показано случайное слово',
     slash: 'both',
     expectedArgs: '<query>',
     minArgs: 0,

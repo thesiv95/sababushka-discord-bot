@@ -3,7 +3,7 @@ import wordsHandler from '../handlers/wordsHandler';
 
 export default {
     category: 'Misc',
-    description: 'Случайное слово недели',
+    description: 'Слово недели на любую тему. Если не ввести слово в качестве параметра в команде, то будет показано случайное слово',
     slash: 'both',
     expectedArgs: '<query>',
     minArgs: 0,

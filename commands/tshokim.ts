@@ -3,7 +3,7 @@ import tshokimHandler from '../handlers/tshokimHandler';
 
 export default {
     category: 'Misc',
-    description: 'Случайная шутка из раздела #цхоким',
+    description: 'Современный бытовой юмор израильтян из раздела #цхоким. Если не ввести слово в качестве параметра в команде, то будет показано случайное предложение',
     slash: 'both',
     expectedArgs: '<query>',
     minArgs: 0,
