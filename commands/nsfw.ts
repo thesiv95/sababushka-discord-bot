@@ -3,7 +3,7 @@ import nsfwHandler from '../handlers/nsfwHandler';
 
 export default {
     category: 'Misc',
-    description: 'Слова на тему 18+ ;) Если не ввести слово в качестве параметра в команде, то будет показано случайное слово',
+    description: 'Слова на тему 18+ ;)',
     slash: 'both',
     expectedArgs: '<query>',
     minArgs: 0,
