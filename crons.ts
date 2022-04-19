@@ -3,7 +3,7 @@ import nodeSchedule from 'node-schedule';
 import logger from './utils/logger';
 
 const phraseTemplate = (activity: string) => {
-    return `Привет! Я понимаю, что ты очень устал(а), но пожалуйста, удели 5 минут ${activity}, ты мне еще спасибо скажешь! ;)`;
+    return `Привет! Пожалуйста, удели 5 минут ${activity}!`;
 }
 
 const getActivity = (day: number) => {
