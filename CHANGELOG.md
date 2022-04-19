@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.0.1...v3.1.0) (2022-04-19)
+
+
+### Features
+
+* adds username to reminder db (just for manual control) ([f998def](https://github.com/thesiv95/sababushka-discord-bot/commit/f998def35ce20c4eac1ef6d0235e1a7d931f089d))
+
 ### [3.0.1](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.0.0...v3.0.1) (2022-04-16)
 
 
