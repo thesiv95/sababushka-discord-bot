@@ -6,5 +6,5 @@ export default {
     category: 'Reminder Controls',
     description: 'Включить напоминалку',
     slash: 'both',
-    callback: ({ user }) => remindersHandler(ReminderToggleEnum.ON, user.id),
+    callback: ({ user }) => remindersHandler(ReminderToggleEnum.ON, user.id, user.username),
 } as ICommand
