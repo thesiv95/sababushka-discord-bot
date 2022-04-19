@@ -41,7 +41,9 @@ export const doApiReminderToggle = async (option: ReminderToggleEnum, userId: st
         ) as AxiosResponse;
     const status = response.status;
     logger.info(`api reminder ${url} >> status ${status}`);
-    return status === 202;
+    // 201 if new record added
+    // 202 if record was existing but modified
+    return status === 201 || status === 202;
 }
 
 
