@@ -30,8 +30,8 @@ export const doAPIRequest = async (category: string, query: URLSearchParams | nu
  * @param option status
  * @returns 
  */
-export const doApiReminderToggle = async (option: ReminderToggleEnum, userId: string) => {
-    const query = new URLSearchParams({ userId });
+export const doApiReminderToggle = async (option: ReminderToggleEnum, userId: string, userName: string) => {
+    const query = new URLSearchParams({ userId, userName });
     const url = `${process.env.SERVER_URL}/reminders/${option}?${query}`;
     const response = await axios.get(
         url,

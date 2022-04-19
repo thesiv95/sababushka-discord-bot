@@ -2,9 +2,9 @@ import { ReminderToggleEnum } from "../enums/reminder-toggle.enum";
 import { doApiReminderToggle } from "../utils/http";
 import logger from "../utils/logger";
 
-const remindersHandler = async (option: ReminderToggleEnum, userId: string) => {
+const remindersHandler = async (option: ReminderToggleEnum, userId: string, userName: string) => {
     try {
-        const isRequestDone = await doApiReminderToggle(option, userId);
+        const isRequestDone = await doApiReminderToggle(option, userId, userName);
         if (!isRequestDone) return 'Произошла ошибка на стороне сервера';
         const phrase = option === ReminderToggleEnum.ON ? 'включена' : 'выключена'
 
