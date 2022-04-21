@@ -10,7 +10,7 @@ const getActivity = (day: number) => {
     if (day === 0) return phraseTemplate('письму');
     if (day === 1) return phraseTemplate('словарному запасу');
     if (day === 2) return phraseTemplate('аудированию');
-    if (day === 3) return 'Пожалуйста, приди на сегодняшний разговорный клуб!';
+    if (day === 3) return phraseTemplate('разговорной речи');
     if (day === 4) return phraseTemplate('чтению');
     if (day === 5) return phraseTemplate('произношению');
     return 'Сегодня выходной! Отдыхай! :)'
