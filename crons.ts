@@ -1,18 +1,19 @@
 import axios, { AxiosResponse } from 'axios';
 import nodeSchedule from 'node-schedule';
+import { DictaturaDescEnum } from './enums/dictatura-desc.enum';
 import logger from './utils/logger';
 
-const phraseTemplate = (activity: string) => {
-    return `Привет! Пожалуйста, удели 5 минут ${activity}!`;
+const phraseTemplate = (activity: string, cmdParam: DictaturaDescEnum) => {
+    return `Привет! Пожалуйста, удели 5 минут ${activity}! Команда бота: /dictatura ${cmdParam}`;
 }
 
 const getActivity = (day: number) => {
-    if (day === 0) return phraseTemplate('письму');
-    if (day === 1) return phraseTemplate('словарному запасу');
-    if (day === 2) return phraseTemplate('аудированию');
-    if (day === 3) return phraseTemplate('разговорной речи');
-    if (day === 4) return phraseTemplate('чтению');
-    if (day === 5) return phraseTemplate('произношению');
+    if (day === 0) return phraseTemplate('письму', DictaturaDescEnum.write);
+    if (day === 1) return phraseTemplate('словарному запасу', DictaturaDescEnum.words);
+    if (day === 2) return phraseTemplate('аудированию', DictaturaDescEnum.listen);
+    if (day === 3) return phraseTemplate('разговорной речи', DictaturaDescEnum.speak);
+    if (day === 4) return phraseTemplate('чтению', DictaturaDescEnum.read);
+    if (day === 5) return phraseTemplate('произношению', DictaturaDescEnum.pronounce);
     return 'Сегодня выходной! Отдыхай! :)'
 }
 
