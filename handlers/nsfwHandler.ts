@@ -30,7 +30,6 @@ const nsfwHandler = async (args: string[]) => {
             `);
 
             return `
-                https://sababushka.com/sex
                 ${msgParts.join('\n')}
             `;
 
@@ -39,7 +38,6 @@ const nsfwHandler = async (args: string[]) => {
             const index = getRandomInt(0, apiResponse.length - 1);
 
             msg = `
-                https://sababushka.com/sex
                 ${apiResponse[index].he}
                 ${apiResponse[index].translit}
                 ${apiResponse[index].ru}

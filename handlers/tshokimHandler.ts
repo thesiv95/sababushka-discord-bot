@@ -30,7 +30,6 @@ const tshokimHandler = async (args: string[]) => {
             `);
 
             return `
-                https://www.instagram.com/explore/tags/%D1%86%D1%85%D0%BE%D0%BA%D0%B8%D0%BC/
                 ${msgParts.join('\n')}
             `;
 
@@ -39,7 +38,6 @@ const tshokimHandler = async (args: string[]) => {
             const index = getRandomInt(0, apiResponse.length - 1);
 
             msg = `
-                https://www.instagram.com/explore/tags/%D1%86%D1%85%D0%BE%D0%BA%D0%B8%D0%BC/
                 ${apiResponse[index].he}
                 ${apiResponse[index].translit}
                 ${apiResponse[index].ru}
