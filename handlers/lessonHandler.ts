@@ -9,7 +9,6 @@ const lessonHandler = async (args: string[]) => {
         if (args.length !== 0) {
             let urlSearchParams = {};
             if (args[0]) urlSearchParams = { index: args[0] };
-            if (args[1]) urlSearchParams = { title: args[1] };
 
             query = new URLSearchParams(urlSearchParams);
         } else {
