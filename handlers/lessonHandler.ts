@@ -17,8 +17,8 @@ const lessonHandler = async (args: string[]) => {
         
         const apiResponse = await Http.doAPIRequest(CommandsEnum.youtube, query);
 
-        // If empty array (nothing was found)
-        if (apiResponse.length === 0) return 'Такого номера еще нет';
+        // If nothing was found
+        if (!apiResponse || apiResponse.length === 0) return 'Такого номера еще нет';
  
         if (!query) {
             return `
