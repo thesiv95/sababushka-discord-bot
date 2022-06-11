@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.3.1...v3.3.2) (2022-06-11)
+
+
+### Bug Fixes
+
+* youtube lesson search only by title ([a1c77c6](https://github.com/thesiv95/sababushka-discord-bot/commit/a1c77c651ff752afc2cd87a8bad7dcaae25a9364))
+
 ### [3.3.1](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.3.0...v3.3.1) (2022-06-10)
 
 
