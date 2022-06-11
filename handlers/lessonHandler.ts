@@ -8,7 +8,7 @@ const lessonHandler = async (args: string[]) => {
         
         if (args.length !== 0) {
             let urlSearchParams = {};
-            if (args[0]) urlSearchParams = { index: args[0] };
+            if (args[0]) urlSearchParams = { query: args[0] };
 
             query = new URLSearchParams(urlSearchParams);
         } else {
@@ -18,7 +18,7 @@ const lessonHandler = async (args: string[]) => {
         const apiResponse = await Http.doAPIRequest(CommandsEnum.youtube, query);
 
         // If nothing was found
-        if (!apiResponse || apiResponse.length === 0) return 'Такого номера еще нет';
+        if (!apiResponse || apiResponse.length === 0) return 'Урок не найден';
  
         if (!query) {
             return `
