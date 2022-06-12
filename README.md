@@ -1,2 +1,2 @@
 # sababushka-discord-bot
-* Discord 111
+* App build is automated via github actions
