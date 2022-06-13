@@ -21,11 +21,11 @@ client.on('ready', async () => {
     logger.info(`logged: ${client.user!.tag}`);
     await cronsInit();
     const isDevMode = process.env.NODE_ENV === 'dev';
-    const cmdsPath = isDevMode ? 'commands' : 'dist/commands';
+    // const cmdsPath = isDevMode ? 'commands' : 'dist/commands';
     
     new WOKCommands(client, {
         // 1 file = 1 command
-        commandsDir: path.join(__dirname, cmdsPath),
+        commandsDir: path.join(__dirname, 'commands'),
         // we use ts only in dev mode. otherwise cmds will not be registered
         typeScript: isDevMode,
         // ids are a single line separated with commas in env, here we need to convert it to array
