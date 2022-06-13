@@ -19,6 +19,8 @@ const lessonHandler = async (args: string[]) => {
 
         // If nothing was found
         if (!apiResponse || apiResponse.length === 0) return 'Урок не найден';
+        console.log(apiResponse);
+        
  
         if (!query) {
             return `
