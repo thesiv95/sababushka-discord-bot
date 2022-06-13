@@ -8,7 +8,7 @@ const lessonHandler = async (args: string[]) => {
         
         if (args.length !== 0) {
             let urlSearchParams = {};
-            if (args[0]) urlSearchParams = { query: args[0] };
+            if (args[0]) urlSearchParams = { title: args[0] };
 
             query = new URLSearchParams(urlSearchParams);
         } else {
