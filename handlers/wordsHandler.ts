@@ -17,6 +17,7 @@ const wordsHandler = async (args: string[]) => {
         }
         
         const apiResponse = await Http.doAPIRequest(CommandsEnum.words, query);
+        logger.debug(JSON.stringify(apiResponse));
         let msg;
 
         // If empty array (nothing was found)
