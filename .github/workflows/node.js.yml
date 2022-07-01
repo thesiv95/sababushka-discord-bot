@@ -31,4 +31,4 @@ jobs:
     - name: ts build
       run: npm run build --if-present
     - name: process manager restart
-      run: pm2 restart pm2.json && echo "bot restarted"
+      run: cd ~ && pm2 restart pm2.json && echo "bot restarted"
