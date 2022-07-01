@@ -29,6 +29,8 @@ const lessonHandler = async (args: string[]) => {
             `
         }
 
+        logger.debug(JSON.stringify(apiResponse))
+
         const msgArray = apiResponse.map((el: any) => `
             #${el.index}: ${el.title}
             ${el.url}
