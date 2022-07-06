@@ -3,5 +3,6 @@ export enum CommandsEnum {
     nsfws = 'nsfws',
     tshokim = 'tshokim',
     words = 'words',
-    youtube = 'youtube'
+    youtube = 'youtube',
+    shovers = 'shovers'
 }
