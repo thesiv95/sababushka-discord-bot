@@ -18,8 +18,9 @@ const getActivity = (day: number) => {
 }
 
 export const cronsInit = async () => {
-    logger.info('Cron: init');
-    nodeSchedule.scheduleJob(process.env.CRON_TIME!, async () => {
+    const cronTime =  process.env.CRON_TIME! || '0 19 * * 0-6';
+    logger.info('Cron: init ' + cronTime);
+    nodeSchedule.scheduleJob(cronTime, async () => {
         try {
             // Check which users are active via endpoint
             const url = `${process.env.SERVER_URL!}/reminders/activeUsers`
@@ -45,7 +46,7 @@ export const cronsInit = async () => {
                 "content": `${targetUserList} ${message}`
             });
         } catch (error) {
-            logger.error(`Cron init error ${error}`)
+            logger.error(`Cron running error ${error}`)
         }
     });
 };
