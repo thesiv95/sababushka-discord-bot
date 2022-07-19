@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.4.0...v3.5.0) (2022-07-19)
+
+
+### Features
+
+* docs command ([bcc012a](https://github.com/thesiv95/sababushka-discord-bot/commit/bcc012a7b71d125176633ce6abdc180e937bad77))
+
 ## [3.4.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.3.3...v3.4.0) (2022-07-06)
 
 
