@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.5.0...v3.6.0) (2022-08-19)
+
+
+### Features
+
+* add binyan command ([2c32155](https://github.com/thesiv95/sababushka-discord-bot/commit/2c32155f732268a297380d9856041311a42e9b47))
+
 ## [3.5.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.4.0...v3.5.0) (2022-07-19)
 
 
