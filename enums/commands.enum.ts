@@ -4,5 +4,6 @@ export enum CommandsEnum {
     tshokim = 'tshokim',
     words = 'words',
     youtube = 'youtube',
-    shovers = 'shovers'
+    shovers = 'shovers',
+    binyans = 'binyans',
 }
