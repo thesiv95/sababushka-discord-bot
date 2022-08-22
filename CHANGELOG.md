@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.6.0...v3.7.0) (2022-08-22)
+
+
+### Features
+
+* add extra pass to lesson command ([8a84d38](https://github.com/thesiv95/sababushka-discord-bot/commit/8a84d38bf23af93f2ae89e87f0c8c136bffdeba7))
+
 ## [3.6.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.5.0...v3.6.0) (2022-08-19)
 
 
