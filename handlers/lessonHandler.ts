@@ -7,10 +7,22 @@ const lessonHandler = async (args: string[]) => {
         let query: URLSearchParams | null;
         
         if (args.length !== 0) {
-            let urlSearchParams = {};
-            if (args[0]) urlSearchParams = { title: args[0] };
 
-            query = new URLSearchParams(urlSearchParams);
+            // password argument is mandatory
+            if (args[0] !== process.env.LESSON_ROUTE_PASS) {
+                logger.warn('attempt to enter incorrect lesson pass: ' + args[0])
+                return 'Нужен пароль - его может получить только участник клуба. Пароль неверный';
+            }
+
+            let urlSearchParams = {};
+            
+            if (args[1]) {
+                urlSearchParams = { title: args[1] };
+                query = new URLSearchParams(urlSearchParams);
+            } else { // if no lesson argument
+                query = null; // send no query and get the latest lesson
+            }
+
         } else {
             query = null;
         }
