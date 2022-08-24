@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.1](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.7.0...v3.7.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* binyan handler output ([7fbea05](https://github.com/thesiv95/sababushka-discord-bot/commit/7fbea050de687d63475c02b892c94d360a8d5d13))
+
 ## [3.7.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v3.6.0...v3.7.0) (2022-08-22)
 
 
