@@ -21,7 +21,7 @@ const binyanHandler = async (args: string[]) => {
     const message = `
         **${response.ru}** [${response.translit}]
 -----------------------------------------
-Биньян: ${response.binyanType}
+Биньян: *${response.binyanType}*
 Корень: ${response.root}
 -----------------------------------------
 Настоящее время:
