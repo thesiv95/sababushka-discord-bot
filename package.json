@@ -1,6 +1,6 @@
 {
   "name": "sababushka-discord-bot",
-  "version": "3.7.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
