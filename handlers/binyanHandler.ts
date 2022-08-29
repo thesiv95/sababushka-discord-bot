@@ -24,6 +24,8 @@ const binyanHandler = async (args: string[]) => {
 Биньян: *${response.binyanType}*
 Корень: ${response.root}
 -----------------------------------------
+Инфинитив: ${response.infinitive}
+-----------------------------------------
 Настоящее время:
 ${responseTimePresent.maleSingle}/${responseTimePresent.femaleSingle}/${responseTimePresent.malePlural}/${responseTimePresent.femalePlural}
 -----------------------------------------
