@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.1](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.0.0...v1.0.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* **binyan:** add missing infinitive ([691edee](https://github.com/thesiv95/sababushka-discord-bot/commit/691edee4658461bcde69c4209b105c4a1f6c35e5))
+
 ## 1.0.0 (2022-08-27)
 
 
