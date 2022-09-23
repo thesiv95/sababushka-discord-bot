@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.0.1...v1.1.0) (2022-09-23)
+
+
+### Features
+
+* add x2 command ([34b9606](https://github.com/thesiv95/sababushka-discord-bot/commit/34b96068a324a375bf4126c0a1acbfc096d00878))
+
 ## [1.0.1](https://github.com/thesiv95/sababushka-discord-bot/compare/v1.0.0...v1.0.1) (2022-08-29)
 
 
