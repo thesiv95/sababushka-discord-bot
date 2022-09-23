@@ -6,4 +6,5 @@ export enum CommandsEnum {
     youtube = 'youtube',
     shovers = 'shovers',
     binyans = 'binyans',
+    x2 = 'doubles',
 }
