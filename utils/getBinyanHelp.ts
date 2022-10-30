@@ -1,5 +1,5 @@
 const getBinyanHelp = () => {
-    return `binyan help`
+    return `глаголы настоящего и прошедшего времени со всеми склонениями`
 };
 
 export default getBinyanHelp;
