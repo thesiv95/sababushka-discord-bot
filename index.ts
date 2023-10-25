@@ -31,7 +31,7 @@ client.on('ready', async () => {
         // ids are a single line separated with commas in env, here we need to convert it to array
         testServers: process.env.TEST_DISCORD_SERVERS_IDS!.split(','),
         // mongodb is used for wokcommands params, and for words as well
-        mongoUri: process.env.MONGO,
+        mongoUri: process.env.MONGO_URL,
     });
     
 
