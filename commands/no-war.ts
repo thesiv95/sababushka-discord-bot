@@ -7,7 +7,7 @@ export default {
     callback: () => `
         Информация о помощи Израилю: https://t.me/goldenberg_g/4612
         Информация о помощи Украине: https://supportukrainenow.org
-        ХУЙ ВОЙНАМ!
+        ХРЕН ВОЙНАМ!
         Слава Україні!
         עם ישראל חי!
     `
